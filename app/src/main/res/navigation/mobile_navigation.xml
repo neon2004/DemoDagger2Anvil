@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--suppress NavigationFile -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.demo.ui.fragments.home.HomeFragment"
+        android:label="@string/menu_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_detail"
+            app:destination="@id/nav_detail"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_detail"
+        android:name="com.example.demo.ui.fragments.detail.DetailFragment"
+        android:label="@string/menu_detail">
+        <argument
+            android:name="detailArgument"
+            app:argType="string"
+            android:defaultValue=""/>
+    </fragment>
+
+</navigation>

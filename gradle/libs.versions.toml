@@ -1,0 +1,108 @@
+[versions]
+javaxInject = "1"
+kotlin = "1.9.22"
+ksp = "1.9.22-1.0.16"
+agp = "8.1.1"
+gradle = "8.5"
+java = "17"
+
+composeCompiler = "1.5.3"
+composeBom = "2024.02.01"
+composeActivity = "1.8.0"
+coilVersion = "2.5.0"
+
+androidx-core = "1.12.0"
+androidx-lifecycle = "2.7.0"
+androidx-activity = "1.8.2"
+androidx-appcompat = "1.6.1"
+
+coroutines = "1.7.3"
+material = "1.11.0"
+composeMaterial3 = "1.2.0"
+dagger = "2.51"
+anvil = "2.4.8"
+
+testJunit5Version = "5.10.0"
+testMockkVersion = "1.13.8"
+kotlinCoroutines = "1.7.3"
+
+navVersion = "2.7.7"
+
+retrofitVersion = "2.9.0"
+org-jetbrains-kotlin-jvm = "1.9.22"
+junit = "4.13.2"
+androidx-test-ext-junit = "1.1.5"
+espresso-core = "3.5.1"
+
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+#kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+google-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+anvil = { id = "com.squareup.anvil", version.ref = "anvil" }
+navigation-safe = {id = "androidx.navigation.safeargs.kotlin", version.ref = "navVersion"}
+org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
+com-android-library = { id = "com.android.library", version.ref = "agp" }
+
+[libraries]
+androidx-activity = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
+androidx-core = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
+
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+
+dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
+dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
+
+anvil-annotations = { module = "com.squareup.anvil:annotations-optional", version.ref = "anvil" }
+
+javax-inject = { module = "javax.inject:javax.inject", version.ref = "javaxInject" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "composeMaterial3" }
+
+
+
+# region Jetpack Compose
+# region BOM
+# Note that the version is provided by the BOM and hence is not necessary to specify on each dependency.
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+compose-layout = { group = "androidx.compose.foundation", name = "foundation-layout" }
+compose-runtime = { group = "androidx.compose.runtime", name = "runtime" }
+compose-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+# endregion
+
+compose-activity = { module = "androidx.activity:activity-compose", version.ref = "composeActivity" }
+compose-coil  = { module = "io.coil-kt:coil-compose", version.ref = "coilVersion"}
+# endregion
+
+navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navVersion" }
+navigation-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navVersion" }
+
+
+#Lifecycle
+androidX-lifecycle-viewModel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
+androidx-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
+androidX-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
+androidX-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
+androidX-lifecycle-process = { module = "androidx.lifecycle:lifecycle-process", version.ref = "androidx-lifecycle" }
+
+#Retrofit
+retrofit-lib = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofitVersion" }
+retrofit-gsonConverter = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofitVersion" }
+
+
+#Test
+test-junit5 = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "testJunit5Version"}
+test-junit5-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "testJunit5Version"}
+test-junit5-migrationsupport = { module = "org.junit.jupiter:junit-jupiter-migrationsupport", version.ref = "testJunit5Version"}
+test-junit5-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "testJunit5Version"}
+test-junit5-vintage = { module = "org.junit.vintage:junit-vintage-engine", version.ref = "testJunit5Version"}
+test-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinCoroutines" }
+test-mockk = { module = "io.mockk:mockk-jvm", version.ref = "testMockkVersion" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+androidx-annotation-jvm = { group = "androidx.annotation", name = "annotation-jvm", version = "1.7.1" }
