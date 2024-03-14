@@ -41,10 +41,8 @@ android {
     }
     buildFeatures {
         viewBinding = true
-    }
-
-    buildFeatures {
         compose = true
+
     }
 
     composeOptions {
@@ -56,6 +54,7 @@ dependencies {
 
     implementation(project(":domain"))
     implementation(project(":data"))
+    implementation(project(":ui"))
 
     implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)

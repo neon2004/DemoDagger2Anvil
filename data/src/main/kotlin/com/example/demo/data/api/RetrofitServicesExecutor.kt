@@ -31,14 +31,16 @@ constructor(
         val url = request.retrofitCall.request().url().toString()
         return try {
 
-//            networkManager.checkConnectivity()
-
-            val response = request.retrofitCall.execute()
-            if (response.isSuccessful) {
-                eitherSuccess(ServiceResponse(response.body(), response.code(), response.headers().toMultimap()))
-            } else {
-                eitherFailure(ServiceError(response.errorBody()?.string(), response.code(), response.headers().toMultimap()))
-            }
+//           if(networkManager.checkConnectivity()) {
+               val response = request.retrofitCall.execute()
+               if (response.isSuccessful) {
+                   eitherSuccess(ServiceResponse(response.body(), response.code(), response.headers().toMultimap()))
+               } else {
+                   eitherFailure(ServiceError(response.errorBody()?.string(), response.code(), response.headers().toMultimap()))
+               }
+//           }else{
+//               eitherFailure(ServiceError(statusCode = -100, headers = emptyMap()))
+//           }
         } catch (ex: JsonParseException) {
 
             throw ServiceException(ex.message ?: "", url)

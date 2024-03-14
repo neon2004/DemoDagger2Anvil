@@ -1,5 +1,6 @@
 package com.example.demo.utils
 
+import android.app.Activity
 import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
@@ -14,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.demo.MyApp
 
 
 fun Context.toast(message: String) {
@@ -27,6 +29,11 @@ fun View.show() {
 fun View.hide() {
     visibility = View.GONE
 }
+
+val Activity.injector get() = (applicationContext as MyApp).appComponents
+
+val Activity.myApp: MyApp
+    get() = application as MyApp
 
 @ColorInt
 internal fun View.color(@ColorRes attribute: Int): Int = ContextCompat.getColor(context, attribute)

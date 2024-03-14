@@ -3,19 +3,25 @@ package com.example.demo
 import android.app.Application
 import com.example.demo.di.component.AppComponents
 import com.example.demo.di.component.DaggerAppComponents
-import com.example.demo.di.modules.InternetUtil
+import com.example.demo.di.provider.ApplicationComponentProvider
 
-class MyApp : Application() {
+class MyApp : Application(), ApplicationComponentProvider {
+
 
     val appComponents: AppComponents by lazy {
-        DaggerAppComponents
-            .factory()
-            .create(this)
+        getAppComponents()
     }
 
     override fun onCreate() {
         super.onCreate()
-        InternetUtil.init(this)
+        appComponents.inject(this)
+//        InternetUtil.init(this)
+    }
+
+    override fun getAppComponents(): AppComponents {
+        return DaggerAppComponents
+            .factory()
+            .create(this)
     }
 
 }

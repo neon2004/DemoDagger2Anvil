@@ -22,7 +22,7 @@ open class ServiceResponse<T>(
 }
 
 open class ServiceError(
-    val description: String?,
+    val description: String? = null,
     val statusCode: Int,
     val headers: Map<String, List<String>>,
 )
